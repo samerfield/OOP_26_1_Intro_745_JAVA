@@ -26,9 +26,9 @@ public class Workshop {
     public int[] tablaMultiplicar(int numero, int limite) {
         // TODO: Implementar el método para retornar la tabla de multiplicar del número dado.
         // Ejemplo: Si numero = 2 y limite = 5, el resultado debería ser [2, 4, 6, 8, 10].
-	int resultado = new int[limite];
-	for(int i=0;i<=limite;i++){
-	resultado[i] = numero * i;
+	int[] resultado = new int[limite];
+	for(int i=0;i<limite;i++){
+	resultado[i] = numero * (i+1);
 
 	}
 
