@@ -44,7 +44,7 @@ public class Workshop {
         // Lanzar IllegalArgumentException si n es negativo.
 	// aaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 	if(n<0){
-		trow new IllegalArgumentException("el numero no debe ser negativo");
+		throw new IllegalArgumentException("el numero no debe ser negativo");
 	}
 
 	int resultado = 1;
