@@ -53,6 +53,7 @@ public class Workshop {
 	}
         return resultado;
     }
+	//metodo que devuelve un numero si es primo
 	public static boolean esPrimo(int numero) {
         // TODO: Implementar el método para verificar si un número es primo.
         // Ejemplo: Si numero = 7, el resultado debería ser true.
