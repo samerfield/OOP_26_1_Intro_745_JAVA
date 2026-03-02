@@ -63,6 +63,12 @@ public class Workshop {
 			contador++;
 		}
 	}
+
+	if(numero<=1){
+		return false;
+	}
+
+
 	if(contador>2){
 		System.out.println(contador);
 		return false;
