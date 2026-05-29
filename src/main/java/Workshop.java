@@ -142,33 +142,49 @@ public int encontrarElementoMayor(int[] arreglo) {
     return mayor;
 }
 
-    // Método que encuentra el elemento menor en un arreglo
     public int encontrarElementoMenor(int[] arreglo) {
-        // TODO: Implementar el método para encontrar el elemento menor en un arreglo.
-        // Ejemplo: Si arreglo = [1, 2, 3, 4, 5], el resultado debería ser 1.
-        return 0;
+    if (arreglo.length == 0) {
+        throw new IllegalArgumentException("El arreglo no puede estar vacío.");
     }
+    int menor = arreglo[0];
+    for (int i = 1; i < arreglo.length; i++) {
+        if (arreglo[i] < menor) {
+            menor = arreglo[i];
+        }
+    }
+    return menor;
+}
 
-    // Método que busca un elemento en un arreglo
-    public boolean buscarElemento(int[] arreglo, int elemento) {
-        // TODO: Implementar el método para buscar un elemento en un arreglo.
-        // Ejemplo: Si arreglo = [1, 2, 3, 4, 5] y elemento = 3, el resultado debería ser true.
-        return false;
+public boolean buscarElemento(int[] arreglo, int elemento) {
+    for (int num : arreglo) {
+        if (num == elemento) {
+            return true;
+        }
     }
+    return false;
+}
 
-    // Método que invierte un arreglo
-    public int[] invertirArreglo(int[] arreglo) {
-        // TODO: Implementar el método para invertir un arreglo.
-        // Ejemplo: Si arreglo = [1, 2, 3, 4, 5], el resultado debería ser [5, 4, 3, 2, 1].
-        return new int[0];
+public int[] invertirArreglo(int[] arreglo) {
+    int[] invertido = new int[arreglo.length];
+    for (int i = 0; i < arreglo.length; i++) {
+        invertido[i] = arreglo[arreglo.length - 1 - i];
     }
+    return invertido;
+}
 
-    // Método que ordena un arreglo en orden ascendente
-    public int[] ordenarArreglo(int[] arreglo) {
-        // TODO: Implementar el método para ordenar un arreglo en orden ascendente.
-        // Ejemplo: Si arreglo = [5, 4, 3, 2, 1], el resultado debería ser [1, 2, 3, 4, 5].
-        return new int[0];
+public int[] ordenarArreglo(int[] arreglo) {
+    int[] ordenado = arreglo.clone();
+    for (int i = 0; i < ordenado.length - 1; i++) {
+        for (int j = 0; j < ordenado.length - 1 - i; j++) {
+            if (ordenado[j] > ordenado[j + 1]) {
+                int temp = ordenado[j];
+                ordenado[j] = ordenado[j + 1];
+                ordenado[j + 1] = temp;
+            }
+        }
     }
+    return ordenado;
+}
 
     // Método que elimina los duplicados de un arreglo
     public int[] eliminarDuplicados(int[] arreglo) {
