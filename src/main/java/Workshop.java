@@ -364,34 +364,62 @@ public String convertirAHexadecimal(int numero) {
 }
 
     public String pptls2(String game[]) {
-        //Retornar player ganador o empate
-            /*
-            Rock = R
-            Paper = P
-            Scissors = S
-            Lizard = L
-            Spock = V
-        Scissors cuts Paper
-Paper covers Rock
-Rock crushes Lizard
-Lizard poisons Spock
-Spock smashes Scissors
-Scissors decapitates Lizard
-Lizard eats Paper
-Paper disproves Spock
-Spock vaporizes Rock
-Rock crushes Scissors
-         */
-        return "";
+    if (game == null || game.length != 2) {
+        return "Empate";
     }
+    String p1 = game[0];
+    String p2 = game[1];
+    if (p1.equals(p2)) {
+        return "Empate";
+    }
+    boolean p1Gana = false;
+    switch (p1) {
+        case "R":
+            p1Gana = p2.equals("S") || p2.equals("L");
+            break;
+        case "P":
+            p1Gana = p2.equals("R") || p2.equals("V");
+            break;
+        case "S":
+            p1Gana = p2.equals("P") || p2.equals("L");
+            break;
+        case "L":
+            p1Gana = p2.equals("V") || p2.equals("P");
+            break;
+        case "V":
+            p1Gana = p2.equals("S") || p2.equals("R");
+            break;
+    }
+    return p1Gana ? "Player 1" : "Player 2";
+}
 
-    public double areaCirculo(double radio) {
-        return 0.0;
+public double areaCirculo(double radio) {
+    if (radio < 0) {
+        throw new IllegalArgumentException("El radio no puede ser negativo.");
     }
+    return Math.PI * Math.pow(radio, 2);
+}
 
-    public String zoodiac(int day, int month) {
-        return "";
+public String zoodiac(int dia, int mes) {
+    if (mes < 1 || mes > 12 || dia < 1 || dia > 31) {
+        return "Fecha invvalida";
     }
+    switch (mes) {
+        case 1: return (dia <= 19) ? "Capricornio" : "Acuario";
+        case 2: return (dia <= 18) ? "Acuario" : "Piscis";
+        case 3: return (dia <= 20) ? "Piscis" : "Aries";
+        case 4: return (dia <= 19) ? "Aries" : "Tauro";
+        case 5: return (dia <= 20) ? "Tauro" : "Géminis";
+        case 6: return (dia <= 20) ? "Géminis" : "Cáncer";
+        case 7: return (dia <= 22) ? "Cáncer" : "Leo";
+        case 8: return (dia <= 22) ? "Leo" : "Virgo";
+        case 9: return (dia <= 22) ? "Virgo" : "Libra";
+        case 10: return (dia <= 22) ? "Libra" : "Escorpio";
+        case 11: return (dia <= 21) ? "Escorpio" : "Sagitario";
+        case 12: return (dia <= 21) ? "Sagitario" : "Capricornio";
+        default: return "Fecha ivalida";
+    }
+}
 
 
 }
