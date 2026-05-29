@@ -207,7 +207,7 @@ public int[] combinarArreglos(int[] arreglo1, int[] arreglo2) {
 }
 
 public int[] rotarArreglo(int[] arreglo, int posiciones) {
-    if (arreglo.length == 0) {
+    if (arreglo == null || arreglo.length == 0) {
         return arreglo;
     }
     int n = arreglo.length;
@@ -217,7 +217,7 @@ public int[] rotarArreglo(int[] arreglo, int posiciones) {
     }
     int[] resultado = new int[n];
     for (int i = 0; i < n; i++) {
-        resultado[i] = arreglo[(i + pos) % n];
+        resultado[(i + pos) % n] = arreglo[i];
     }
     return resultado;
 }
@@ -301,10 +301,16 @@ public double promedioLista(java.util.List<Integer> lista) {
 }
 
 public String convertirABinario(int numero) {
+    if (numero < 0) {
+        return "-" + Integer.toBinaryString(Math.abs(numero));
+    }
     return Integer.toBinaryString(numero);
 }
 
 public String convertirAHexadecimal(int numero) {
+    if (numero < 0) {
+        return "-" + Integer.toHexString(Math.abs(numero)).toUpperCase();
+    }
     return Integer.toHexString(numero).toUpperCase();
 }
 
@@ -333,7 +339,7 @@ public String convertirAHexadecimal(int numero) {
     String computadora = opciones[indiceAleatorio];
 
     if (usuario.equals(computadora)) {
-        return "Empate. Ambos eligieron " + eleccionUsuario + ".";
+        return "Empate";
     }
 
     boolean usuarioGana = false;
@@ -355,12 +361,7 @@ public String convertirAHexadecimal(int numero) {
             break;
     }
 
-    String pcFormateada = computadora.substring(0, 1).toUpperCase() + computadora.substring(1);
-    if (usuarioGana) {
-        return "Ganaste. " + eleccionUsuario + " vence a " + pcFormateada + ".";
-    } else {
-        return "Perdiste. " + pcFormateada + " vence a " + eleccionUsuario + ".";
-    }
+    return usuarioGana ? "Ganaste" : "Perdiste";
 }
 
     public String pptls2(String game[]) {
@@ -397,13 +398,17 @@ public double areaCirculo(double radio) {
     if (radio < 0) {
         throw new IllegalArgumentException("El radio no puede ser negativo.");
     }
-    return Math.PI * Math.pow(radio, 2);
+    return Math.PI * radio * radio;
 }
 
+	
 public String zoodiac(int dia, int mes) {
     if (mes < 1 || mes > 12 || dia < 1 || dia > 31) {
-        return "Fecha invvalida";
+        return "Invalid Date";
     }
+    if (mes == 2 && dia > 29) return "Invalid Date";
+    if ((mes == 4 || mes == 6 || mes == 9 || mes == 11) && dia > 30) return "Invalid Date";
+
     switch (mes) {
         case 1: return (dia <= 19) ? "Capricornio" : "Acuario";
         case 2: return (dia <= 18) ? "Acuario" : "Piscis";
@@ -417,10 +422,9 @@ public String zoodiac(int dia, int mes) {
         case 10: return (dia <= 22) ? "Libra" : "Escorpio";
         case 11: return (dia <= 21) ? "Escorpio" : "Sagitario";
         case 12: return (dia <= 21) ? "Sagitario" : "Capricornio";
-        default: return "Fecha ivalida";
+        default: return "Invalid Date";
     }
 }
-
 
 }
 
