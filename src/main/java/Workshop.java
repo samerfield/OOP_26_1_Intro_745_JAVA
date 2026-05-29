@@ -246,38 +246,39 @@ public String invertirCadena(String cadena) {
 
     // Método que cuenta el número de palabras en una cadena
     public int contarPalabras(String cadena) {
-        // TODO: Implementar el método para contar el número de palabras en una cadena.
-        // Ejemplo: Si cadena = "Este es un test", el resultado debería ser 4.
+    if (cadena == null || cadena.trim().isEmpty()) {
         return 0;
     }
+    return cadena.trim().split("\\s+").length;
+}
 
-    // Método que convierte una cadena a mayúsculas
-    public String convertirAMayusculas(String cadena) {
-        // TODO: Implementar el método para convertir una cadena a mayúsculas.
-        // Ejemplo: Si cadena = "hello", el resultado debería ser "HELLO".
-        return "";
+public String convertirAMayusculas(String cadena) {
+    if (cadena == null) {
+        return null;
     }
+    return cadena.toUpperCase();
+}
 
-    // Método que convierte una cadena a minúsculas
-    public String convertirAMinusculas(String cadena) {
-        // TODO: Implementar el método para convertir una cadena a minúsculas.
-        // Ejemplo: Si cadena = "HELLO", el resultado debería ser "hello".
-        return "";
+public String convertirAMinusculas(String cadena) {
+    if (cadena == null) {
+        return null;
     }
+    return cadena.toLowerCase();
+}
 
-    // Método que reemplaza una subcadena en una cadena por otra subcadena
-    public String reemplazarSubcadena(String cadena, String antiguaSubcadena, String nuevaSubcadena) {
-        // TODO: Implementar el método para reemplazar una subcadena en una cadena por otra subcadena.
-        // Ejemplo: Si cadena = "Hello Java", antiguaSubcadena = "Java", y nuevaSubcadena = "world", el resultado debería ser "Hello world".
-        return "";
+public String reemplazarSubcadena(String cadena, String antiguaSubcadena, String nuevaSubcadena) {
+    if (cadena == null || antiguaSubcadena == null || nuevaSubcadena == null) {
+        return cadena;
     }
+    return cadena.replace(antiguaSubcadena, nuevaSubcadena);
+}
 
-    // Método que busca una subcadena en una cadena y retorna su índice
-    public int buscarSubcadena(String cadena, String subcadena) {
-        // TODO: Implementar el método para buscar una subcadena en una cadena y retornar su índice.
-        // Ejemplo: Si cadena = "Hello world" y subcadena = "world", el resultado debería ser 6.
+public int buscarSubcadena(String cadena, String subcadena) {
+    if (cadena == null || subcadena == null) {
         return -1;
     }
+    return cadena.indexOf(subcadena);
+}
 
     // Método que valida un correo electrónico
     public boolean validarCorreoElectronico(String correo) {
