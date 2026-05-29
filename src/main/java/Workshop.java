@@ -280,34 +280,33 @@ public int buscarSubcadena(String cadena, String subcadena) {
     return cadena.indexOf(subcadena);
 }
 
-    // Método que valida un correo electrónico
+   
     public boolean validarCorreoElectronico(String correo) {
-        // TODO: Implementar el método para validar un correo electrónico.
-        // Ejemplo: Si correo = "test@example.com", el resultado debería ser true.
+    if (correo == null) {
         return false;
     }
+    String regex = "^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$";
+    return correo.matches(regex);
+}
 
-    // Método que calcula el promedio de una lista de números
-
-    public double promedioLista(List<Integer> lista) {
-        // TODO: Implementar el método para calcular el promedio de una lista de números.
-        // Ejemplo: Si lista = [1, 2, 3, 4, 5], el resultado debería ser 3.0.
+public double promedioLista(java.util.List<Integer> lista) {
+    if (lista == null || lista.isEmpty()) {
         return 0.0;
     }
-
-    // Método que convierte un número en su representación binaria
-    public String convertirABinario(int numero) {
-        // TODO: Implementar el método para convertir un número en su representación binaria.
-        // Ejemplo: Si numero = 10, el resultado debería ser "1010".
-        return "";
+    int suma = 0;
+    for (int num : lista) {
+        suma += num;
     }
+    return (double) suma / lista.size();
+}
 
-    // Método que convierte un número en su representación hexadecimal
-    public String convertirAHexadecimal(int numero) {
-        // TODO: Implementar el método para convertir un número en su representación hexadecimal.
-        // Ejemplo: Si numero = 255, el resultado debería ser "FF".
-        return "";
-    }
+public String convertirABinario(int numero) {
+    return Integer.toBinaryString(numero);
+}
+
+public String convertirAHexadecimal(int numero) {
+    return Integer.toHexString(numero).toUpperCase();
+}
 
     // Método para el juego de piedra, papel, tijera, lagarto, Spock
     public String jugarPiedraPapelTijeraLagartoSpock(String eleccionUsuario) {
