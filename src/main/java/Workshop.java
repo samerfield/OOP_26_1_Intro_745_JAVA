@@ -94,15 +94,15 @@ public class Workshop {
    
     int[] resultado = new int[n];
 
-    // 4. Asignar el primer elemento (siempre es 0)
+    
     resultado[0] = 0;
 
-    // 5. Si n es mayor que 1, asignar el segundo elemento (siempre es 1)
+    
     if (n > 1) {
         resultado[1] = 1;
     }
 
-    // 6. Llenar el resto del array usando la lógica de Fibonacci
+    
     for (int i = 2; i < n; i++) {
         resultado[i] = resultado[i - 1] + resultado[i - 2];
     }
