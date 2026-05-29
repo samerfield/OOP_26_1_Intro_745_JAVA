@@ -186,40 +186,56 @@ public int[] ordenarArreglo(int[] arreglo) {
     return ordenado;
 }
 
-    // Método que elimina los duplicados de un arreglo
     public int[] eliminarDuplicados(int[] arreglo) {
-        // TODO: Implementar el método para eliminar los duplicados de un arreglo.
-        // Ejemplo: Si arreglo = [1, 2, 2, 3, 4, 4, 5], el resultado debería ser [1, 2, 3, 4, 5].
-        return new int[0];
+    java.util.LinkedHashSet<Integer> set = new java.util.LinkedHashSet<>();
+    for (int num : arreglo) {
+        set.add(num);
     }
-
-    // Método que combina dos arreglos en uno solo
-    public int[] combinarArreglos(int[] arreglo1, int[] arreglo2) {
-        // TODO: Implementar el método para combinar dos arreglos en uno solo.
-        // Ejemplo: Si arreglo1 = [1, 2, 3, 4, 5] y arreglo2 = [6, 7, 8], el resultado debería ser [1, 2, 3, 4, 5, 6, 7, 8].
-        return new int[0];
+    int[] resultado = new int[set.size()];
+    int i = 0;
+    for (int num : set) {
+        resultado[i++] = num;
     }
+    return resultado;
+}
 
-    // Método que rota un arreglo n posiciones
-    public int[] rotarArreglo(int[] arreglo, int posiciones) {
-        // TODO: Implementar el método para rotar un arreglo n posiciones.
-        // Ejemplo: Si arreglo = [1, 2, 3, 4, 5] y posiciones = 2, el resultado debería ser [3, 4, 5, 1, 2].
-        return new int[0];
+public int[] combinarArreglos(int[] arreglo1, int[] arreglo2) {
+    int[] resultado = new int[arreglo1.length + arreglo2.length];
+    System.arraycopy(arreglo1, 0, resultado, 0, arreglo1.length);
+    System.arraycopy(arreglo2, 0, resultado, arreglo1.length, arreglo2.length);
+    return resultado;
+}
+
+public int[] rotarArreglo(int[] arreglo, int posiciones) {
+    if (arreglo.length == 0) {
+        return arreglo;
     }
+    int n = arreglo.length;
+    int pos = posiciones % n;
+    if (pos < 0) {
+        pos += n;
+    }
+    int[] resultado = new int[n];
+    for (int i = 0; i < n; i++) {
+        resultado[i] = arreglo[(i + pos) % n];
+    }
+    return resultado;
+}
 
-    // Método que cuenta los caracteres en una cadena
-    public int contarCaracteres(String cadena) {
-        // TODO: Implementar el método para contar el número de caracteres en una cadena.
-        // Ejemplo: Si cadena = "Hello", el resultado debería ser 5.
+public int contarCaracteres(String cadena) {
+    if (cadena == null) {
         return 0;
     }
+    return cadena.length();
+}
 
-    // Método que invierte una cadena
-    public String invertirCadena(String cadena) {
-        // TODO: Implementar el método para invertir una cadena.
-        // Ejemplo: Si cadena = "Hello", el resultado debería ser "olleH".
-        return "";
+public String invertirCadena(String cadena) {
+    if (cadena == null) {
+        return null;
     }
+    return new StringBuilder(cadena).reverse().toString();
+}
+    
 
     // Método que verifica si una cadena es un palíndromo
     public boolean esPalindromo(String cadena) {
